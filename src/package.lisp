@@ -1,4 +1,5 @@
 ;;;; package.lisp
 
 (defpackage #:cl-myutils
-  (:use #:cl))
+  (:nicknames #:mu)
+  (:use #:cl #:alexndria))
