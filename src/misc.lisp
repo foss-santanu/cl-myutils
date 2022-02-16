@@ -1,7 +1,7 @@
-(in-package :cl-myutils)
+(in-package #:cl-myutils)
 
 (defun create-seq (seq-generator seq-items iter-count)
-  (loop for i from 0 to iter-count
+  (loop for i from 0 to (1- iter-count)
     do  (let ((nxt-entry (funcall seq-generator seq-items)))
            (setf seq-items (append seq-items (list nxt-entry)))))
   seq-items)
@@ -33,3 +33,6 @@
      (dotimes (n ipow)
        (push lnum lst))
      (apply #'* lst)))
+
+(defun in-range-of (float1 float2 &key (range 0.005))
+  (< (- float2 range) float1 (+ float2 range)))
